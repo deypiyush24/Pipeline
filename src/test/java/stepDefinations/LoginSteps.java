@@ -43,13 +43,7 @@ public class LoginSteps {
         dashBoardPage.validateTheHeading(heading);
     }
 
-    @After
-    public void tearDown() {
-        System.out.println("Driver shut down");
-        if (driver != null) {
-            DriverManager.quitDriver();
-        }
-    }
+
 
 
 

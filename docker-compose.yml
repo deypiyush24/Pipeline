@@ -4,8 +4,12 @@ services:
     image: selenium/hub:4.36.0
     container_name: selenium-hub
     platform: linux/amd64
+
+    #ALl the Ports Which Seleniumn Grid will Expose ( 4444:44444) -> it will Run itself and Node on which it interacts 4442 and 4443
     ports:
       - "4444:4444"
+      - "4442:4442"
+      - "4443:4443"
 
   chrome:
     image: selenium/node-chrome:4.36.0
@@ -21,6 +25,19 @@ services:
       SE_EVENT_BUS_PUBLISH_PORT: "4442"
       SE_EVENT_BUS_SUBSCRIBE_PORT: "4443"
 
+  firefox:
+    image: selenium/node-firefox:4.36.0
+    #    container_name: selenium-chrome if you want to scale it you can't give custom name as all container will use same name
+    platform: linux/amd64
+    shm_size: "2gb"
+
+    depends_on:
+      - selenium-hub
+
+    environment:
+      SE_EVENT_BUS_HOST: selenium-hub
+      SE_EVENT_BUS_PUBLISH_PORT: "4442"
+      SE_EVENT_BUS_SUBSCRIBE_PORT: "4443"
   java-tests:
     build:
       context: .
@@ -29,6 +46,7 @@ services:
     depends_on:
       - selenium-hub
       - chrome
+      - firefox
 
     environment:
      runMode: docker

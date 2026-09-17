@@ -1,0 +1,27 @@
+name: Smoke Tests
+
+# Trigger workflow on push or pull request to any branch
+on:
+  push:
+  pull_request:
+
+jobs:
+  run-smoke-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout your repository code onto the runner
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Clean up any existing containers safely
+      - name: Tear down existing Docker containers
+        run: docker compose down || true
+
+      # 3. Spin up the environment with scaled chrome instances
+      - name: Start Docker services
+        run: docker compose up --scale chrome=2 -d
+
+      # 4. Execute the Maven smoke tests inside the container
+      - name: Run Maven Smoke Tests
+        run: docker compose run --rm java-tests mvn test -Dtags=@smoke -DrunMode=docker
