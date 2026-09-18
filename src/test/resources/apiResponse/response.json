@@ -1,0 +1,39 @@
+{
+  "company_id": "COMP-1001",
+  "company_name": "TechCorp Global",
+  "metadata": {
+    "region": "APAC",
+    "created_at": "2026-03-30",
+    "settings": {
+      "notifications_enabled": true,
+      "theme": "dark"
+    }
+  },
+  "departments":
+  [
+    {
+      "department_name": "Engineering",
+      "head_count": 45,
+      "lead": {
+        "name": "Alice Smith",
+        "email": "alice@techcorp.com",
+        "contact": {
+          "phone": "+1-555-0192",
+          "extension": "402"
+        }
+      }
+    },
+    {
+      "department_name": "Quality Assurance",
+      "head_count": 20,
+      "lead": {
+        "name": "Bob Jones",
+        "email": "bob@techcorp.com",
+        "contact": {
+          "phone": "+1-555-0144",
+          "extension": "105"
+        }
+      }
+    }
+  ]
+}

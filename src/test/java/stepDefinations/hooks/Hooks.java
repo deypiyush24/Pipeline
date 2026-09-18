@@ -1,7 +1,6 @@
 package stepDefinations.hooks;
 
-import Utills.DriverManager;
-import Utills.WaitUtils;
+import utils.web.DriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;

@@ -1,4 +1,4 @@
-package Utills;
+package utils.web;
 
 import frameWork.expections.ElementIssueExceptions;
 import org.openqa.selenium.By;

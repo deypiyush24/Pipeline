@@ -1,4 +1,4 @@
-package Utills;
+package utils.web;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ public class Alerts {
     private final Alert alert;
 
     public Alerts(WebDriver driver) {
-        WaitUtils waitUtils = new WaitUtils(driver);
+       WaitUtils waitUtils = new WaitUtils(driver);
         log.info(" Driver is Passed in Alert Class : {}", driver);
         this.alert = driver.switchTo().alert();
         waitUtils.getTheWait().until(ExpectedConditions.alertIsPresent());

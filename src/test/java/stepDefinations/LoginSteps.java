@@ -1,8 +1,4 @@
 package stepDefinations;
-import Utills.DriverFactory;
-import Utills.DriverManager;
-import io.cucumber.java.After;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +6,9 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pages.DashBoardPage;
 import pages.LoginPage;
+import utils.web.DriverFactory;
+import utils.web.DriverManager;
+
 import java.net.MalformedURLException;
 import java.util.logging.Logger;
 public class LoginSteps {
